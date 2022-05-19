@@ -20,10 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
             data.forEach(dog => {
                 createDog(dog)
                 allDogs.push(dog)
-                if (dog['isGoodDog'] == true) {
-                    goodDogs.push(dog)
-    
-                } 
+                
             }
             
             )};
@@ -44,7 +41,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 button.addEventListener('click', function (e) {
                     obj['isGoodDog'] ? obj['isGoodDog'] = false : obj['isGoodDog'] = true
                     button.innerHTML == "Good Dog!" ? button.innerHTML = "Bad Dog!" : button.innerHTML = "Good Dog!"
-                
+                    if (obj['isGoodDog'] == true) {
+                        goodDogs.push(obj)
+                        // console.log(goodDogs)
+                    } 
             
                 })
 
@@ -80,6 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 console.log(allDogs)
                 filterButton.innerHTML = "Filter good dogs: OFF"
                 dogBar.innerHTML = " "
+                goodDogs.splice(0, goodDogs.length)
                 allDogs.forEach(function (dog) {
                     createDog(dog)
     
